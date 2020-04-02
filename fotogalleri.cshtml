@@ -1,0 +1,27 @@
+﻿@{
+    Page.Title = "Välkommen - Startsida ";
+    Layout = "~/Shared/_Layout.cshtml";
+
+    string path = Server.MapPath("~/App_Data/stugor_data.csv");
+    string[] rader = File.ReadAllLines(path);
+
+    int antalstugor = rader.Length;
+
+    for (int i = 1; i < rader.Length; i++) {
+
+        string enRad = rader[i];
+        string[] stugData = enRad.Split(';');
+
+        
+
+    }
+}
+
+
+
+
+
+
+    <div>
+
+    </div>

@@ -1,0 +1,21 @@
+﻿@{
+    Page.Title = "Stugdetaljer";
+    Layout = "~/Shared/_Layout.cshtml";
+
+
+}
+
+<div>
+    <h2>Din nya stuga</h2>
+    <form action="~/regnystuga.cshtml" method="post" enctype="multipart/form-data">
+        <input type="text" name="stugnamn" />
+        <input type="text" name="pris" />
+        <input type="text" name="beds" />
+        <input type="text" name="room" />
+        <input type="text" name="storlek" />
+        <input type="text" name="utrustning" />
+        <input type="file" name="bilfil" />
+        <input type="submit" value="Skicka!" />
+    </form>
+
+</div>

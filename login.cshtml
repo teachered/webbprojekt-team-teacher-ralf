@@ -1,0 +1,53 @@
+﻿@{
+    if(IsPost){
+
+        string username = Request["username"];
+        string password = Request["password"];
+
+        // Super Enkel men väldig osäkert sätt att logga in. 
+        // Session är en variabel/objekt av typen dictionary för att spara data så länge man är på sidan. 
+        // kolla i _Layout.cshtml (ungefär rad 23 ) hur den används 
+
+        if(username.Equals("sitemanager") && password.Equals("geheim")) {
+
+            Session["adminInTheHouse"] = true;
+            Response.Redirect("~/index.cshtml");
+
+        }
+        else {
+         Session["adminInTheHouse"] = false;
+        }
+
+
+    }
+}
+
+<style>
+
+    button, input {
+        box-sizing: border-box;
+        width: 200px;
+        margin: 5px;
+    }
+
+</style>
+
+<div>
+    <h3>Administration</h3>
+    <form method="post" style="width: 300px">
+        @if (IsPost) {  // skriptet kommer bara hit om det var fel lösen eller användarnamn. Annars redirect i rad 14
+        <p style="color: red"> Fel användarnamn eller lösenord</p>
+        }
+        <fieldset>
+            <legend>Logga in som administratör</legend>
+            <label for="username">Användarnamn</label><br /><input type="text" name="username" id="username" required/></br>
+            <label for="password">Lösenord</label><br/><input type="password" name="password" id="password" required/><br />
+            <input type="submit" value="logga in!"/>
+
+        </fieldset>
+
+
+    </form>
+
+
+</div>

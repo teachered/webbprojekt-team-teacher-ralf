@@ -1,0 +1,42 @@
+﻿@{
+    Page.Title = "Välkommen - Startsida ";
+    Layout = "~/Shared/_Layout.cshtml";
+
+     string path = Server.MapPath("~/App_Data/stugor_data.csv");
+    string[] rader = File.ReadAllLines(path);
+
+    int antalstugor = rader.Length;
+
+
+   Dictionary<int, string> allaStugor = (Dictionary<int, string>)Session["stugorDB"];
+    
+     
+
+}
+<main>
+    <h2>Våra stugor</h2>
+    <p>Här nedan presenteras en prislista för våra stugor. Klicka på namnet för att få mer information.</p>
+    <div class="center">
+        <table>
+            <tr>
+                <td>#</td>
+                <td>Namn</td>
+                <td>Utrustning</td>
+                <td>Pris/vecka (SEK)</td>
+            </tr>
+            @for (int i = 1; i < allaStugor.Count; i++)
+            {
+                string enRad = allaStugor[i];
+                string[] stugData = enRad.Split(';'); 
+            <tr>
+                <td>@stugData[0].</td>
+                <td><a href="stugdetaljer.cshtml?stuga=@stugData[0]">@stugData[1]</a></td>
+                <td>@stugData[6]</td>
+                <td>@stugData[2]</td>
+            </tr>
+            }
+           
+        </table>
+    </div>
+</main>
+

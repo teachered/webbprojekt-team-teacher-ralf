@@ -1,0 +1,60 @@
+﻿@{
+    Page.Title = "Administration";
+    Layout = "~/Shared/_LayoutAdmin.cshtml";
+
+
+
+
+    int aktuellID = Request["ID"].AsInt();
+    Dictionary<int, string> allaStugor = (Dictionary<int, string>)Session["stugorDB"];
+
+
+    if(IsPost){
+
+        // ID;Namn;Pris;Beds;rum;storlek;utrustning;bild;Rea
+        string allaVärden = Request["ID"] + ';' + Request["Namn"] + ';' + Request["pris"] + ';' + Request["Beds"] + ';' + Request["rum"] + ';' +
+                             Request["storlek"] + ';' + Request["utrustning"] + ';' + Request["bild"] + ';' + Request["Rea"] + ';';
+
+        int ID = Request["ID"].AsInt();
+
+        allaStugor[ID] = allaVärden;  // spara nya uppgifter i Dictionary
+        Session["stugorDB"] = allaStugor;
+
+        string path = Server.MapPath("~/App_Data/stugor_data.csv");
+        File.WriteAllLines(path, allaStugor.Values);
+    }
+
+    string[] aktuellStuga = allaStugor[aktuellID].Split(';');
+    string[] allaVars =  allaStugor[0].Split(';');
+
+}
+
+    <div>
+        <a href="~/administration.cshtml">Tillbaka till översikt</a><br /><br />
+        @if(IsPost) {
+         <p>Dina uppgifter har sparats ...</p>
+        }
+        <form method="post">
+            <table>
+                <tr>
+                    <th>
+                        Typ
+                    </th>
+                    <th>
+                        värde
+                    </th>
+                </tr>
+                @for (int i = 1; i < allaVars.Length; i++) {
+                    <tr>
+                        <td>@allaVars[i]</td>
+                        <td><input name="@allaVars[i]" value="@aktuellStuga[i]" /></td>
+                    </tr>
+
+                }
+                <tr>
+                    <td colspan="2"><input type="submit" value="Spara" /> </td>
+                </tr>
+            </table>
+        </form>
+
+    </div>

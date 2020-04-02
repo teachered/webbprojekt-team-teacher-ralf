@@ -1,0 +1,39 @@
+﻿@{
+    Page.Title = "Administration";
+    Layout = "~/Shared/_LayoutAdmin.cshtml";
+
+    Dictionary<int, string> allaStugor = null;
+
+    if (Session["stugorDB"] != null) {
+    allaStugor = (Dictionary<int, string>)Session["stugorDB"];
+    }
+    else {
+        allaStugor = new Dictionary<int, string>();
+    }
+}
+
+    <div class="center">
+        <a href="~/administration.cshtml">Tillbaka till översikt</a>
+        <table>
+            <tr>
+                <td>#</td>
+                <td>Namn</td>
+                <td>Utrustning</td>
+                <td>Pris/vecka (SEK)</td>
+                <td colspan="2">Ändra och radera</td>
+            </tr>
+            @for (int i = 1; i < allaStugor.Count; i++) {
+                string enRad = allaStugor[i];
+                string[] stugData = enRad.Split(';');
+        <tr>
+            <td>@stugData[0].</td>
+            <td><a href="stugdetaljer.cshtml?stuga=@stugData[0]">@stugData[1]</a></td>
+            <td>@stugData[6]</td>
+            <td>@stugData[2]</td>
+            <td><a href="~/editstuga.cshtml?id=@stugData[0]">Redigera @stugData[1]</a></td>
+            <td><a href="~/removestuga.cshtml?id=@stugData[0]">Radera @stugData[1]</a></td>
+        </tr>
+            }
+
+        </table>
+    </div>

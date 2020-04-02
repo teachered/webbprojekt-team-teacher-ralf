@@ -1,0 +1,39 @@
+﻿@{
+    Page.Title = "Stugdetaljer";
+    Layout = "~/Shared/_Layout.cshtml";
+
+    string stugNR = Request["stuga"];
+    string pris="", namn="", bäddar="", rum="", utrustning="", storlek="",bild = ""; 
+
+    string path = Server.MapPath("~/App_Data/stugor_data.csv");
+    string[] rader = File.ReadAllLines(path);
+
+    for(int i = 1; i < rader.Length; i++){
+
+        string enRad = rader[i];
+        string[] stugData = enRad.Split(';');
+
+        if(stugNR == stugData[0]){
+            pris = stugData[2];
+            namn = stugData[1];
+        }
+
+    }
+}
+<main>
+    <h2>Stugdetaljer för @namn</h2>
+    <p>För denna stuga gäller nedanstående information. Har du ytterligare önskemål kan du bifoga dessa när du gör en <a href="boka-stuga.html">bokning</a>.</p>
+    <ul>
+        <li>Hyra:@pris kr/vecka</li>
+        <li>Storlek: @storlek m<sup>2</sup></li>
+        <li>Antal rum: @rum</li>
+        <li>Antal bäddar: @bäddar</li>
+        <li>Utrustning: @utrustning</li>
+    </ul>
+    <h3>Planlösning</h3>
+    <p>Här nedan ser du planlösningen för stugan. Klicka på de olika rummen för att se respektive interiör!</p>
+   
+        <img src="images" alt="Planlösning" usemap="#floorplan" />
+   
+</main>
+

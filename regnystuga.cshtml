@@ -1,0 +1,31 @@
+﻿@{
+        Page.Title = "Stugdetaljer";
+        Layout = "~/Shared/_Layout.cshtml";
+
+        string path = Server.MapPath("~/App_Data/stugor_data.csv");
+        string[] rader = File.ReadAllLines(path);
+
+        //ta fram högsta ID och plussa på 1 somny ID
+        string sistaRad = rader[rader.Length - 1];
+        string[] part = sistaRad.Split(';');
+        int nyID = int.Parse(part[0]) + 1;
+
+        //ta hand om bilden
+        HttpPostedFileBase uploadedFile = Request.Files["bildfil"];
+        string fileName = Path.GetFileName(uploadedFile.FileName);
+        string fileSavePath = Server.MapPath("~/images/" + fileName);
+        uploadedFile.SaveAs(fileSavePath);
+
+
+
+        //ID;Namn;Pris;Beds;rum;storlek;utrustning;bild;Rea
+        string nyStuga2CSV = nyID + ";" + Request["stugnamn"] + ";" + Request["pris"]
+                                + ";" + Request["beds"] + ";" + Request["room"]
+                            + ";" + Request["storlek"] + ";" + Request["utrustning"]
+                            + ";" + fileName + ";0"; 
+
+}
+
+<div>
+
+</div>

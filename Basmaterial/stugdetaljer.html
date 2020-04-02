@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Stugsajten - Detaljer</title>
+  <link href="./css/style.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Merriweather|Roboto" rel="stylesheet">
+  <link href="css/lightbox.min.css" rel="stylesheet" />
+  <link href="./images/favicon.png" rel="shortcut icon" />
+  <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Stugsajten</h1>
+    </header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Hem</a></li>
+        <li><a href="vara-stugor.html">Våra stugor</a></li>
+        <li><a href="fotogalleri.html">Fotogalleri</a></li>
+        <li><a href="boka-stuga.html">Boka stuga</a></li>
+      </ul>
+      <p class="social-media">
+        <a href="http://www.facebook.com"><i class="fab fa-facebook-square fa-3x"></i></a>
+        <a href="http://www.twitter.com"><i class="fab fa-twitter-square fa-3x"></i></a>
+        <a href="http://www.instagram.com"><i class="fab fa-instagram fa-3x"></i></a>
+      </p>
+    </nav>
+    <main>
+      <h2>Stugdetaljer</h2>
+      <p>För denna stuga gäller nedanstående information. Har du ytterligare önskemål kan du bifoga dessa när du gör en <a href="boka-stuga.html">bokning</a>.</p>
+      <ul>
+        <li>Hyra: 12000 kr/vecka</li>
+        <li>Storlek: 85 m<sup>2</sup></li>
+        <li>Antal rum: 5</li>
+        <li>Antal bäddar: 6</li>
+        <li>Utrustning: Bastu, mikrovågsugn, pool och pjäxtork</li>
+      </ul>
+      <h3>Planlösning</h3>
+			<p>Här nedan ser du planlösningen för stugan. Klicka på de olika rummen för att se respektive interiör!</p>
+			<div class="center">
+				<map id="floorplan" name="floorplan">
+					<area shape="poly" alt="Kök" coords="30,101,27,226,222,230,221,130,203,127,205,68,169,25,110,28,77,67,80,103,30,102" href="images/kitchen.jpg" data-lightbox="floorplan" data-title="Kök" />
+					<area shape="poly" alt="Vardagsrum" coords="229,129,414,132,413,102,581,105,579,276,227,272" href="images/living-room.jpg" data-lightbox="floorplan" data-title="Vardagsrum" />
+					<area shape="rect" alt="TV-rum" coords="410,282,580,408" href="images/tv-room.jpg" data-lightbox="floorplan" data-title="TV-rum" />
+					<area shape="rect" alt="Hall/entré" coords="228,283,398,405" href="images/hallway.jpg" data-lightbox="floorplan" data-title="Hall/entré" />
+					<area shape="rect" alt="Badrum" coords="122,343,219,405" href="images/bathroom.jpg" data-lightbox="floorplan" data-title="Badrum" />
+				</map>
+				<img src="images/floorplan.jpg" alt="Planlösning" usemap="#floorplan" />
+			</div>
+    </main>
+    <footer>
+      <div class="google-map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2127.236654127684!2d14.18775081583883!3d57.780360641272864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465a6d983fd557b9%3A0xc5bbfb1f603bafd6!2sErik+Dahlbergsgymnasiet!5e0!3m2!1ssv!2sse!4v1519988500378" width="400" height="150" allowfullscreen></iframe>
+      </div>
+      <div class="contact">
+        <h3>Kontakta oss</h3>
+        <address>
+          Commandcentergatan 1A <br>
+          1337 Köttfärsdalen
+        </address>
+        <p><i class="fas fa-phone fa-fw"></i> Telefon: +46-123 456 789</p>
+        <p><i class="fas fa-envelope fa-fw"></i> E-post: <a href="mailto:e@post.se">e@post.se</a></p>
+      </div>
+    </footer>
+  </div>
+  <script src="js/lightbox-plus-jquery.min.js"></script>
+	<script src="js/imageMapResizer.min.js"></script>
+</body>
+</html>
