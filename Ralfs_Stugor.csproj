@@ -130,6 +130,7 @@
     <Content Include="administration.cshtml" />
     <Content Include="Shared\_LayoutAdmin.cshtml" />
     <Content Include="editstuga.cshtml" />
+    <Content Include="removestuga.cshtml" />
     <None Include="vara-stugor.cshtml" />
     <None Include="stugdetaljer.cshtml" />
     <Content Include="Web.config" />
